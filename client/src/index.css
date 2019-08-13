@@ -1,0 +1,59 @@
+
+html, body, #root, .App, .container {
+ height: 100% !important;
+ width: 100% !important;
+ max-width: 100% !important;
+}
+
+/* Dashboard */
+
+.dashboard { 
+  width: 100%;
+  height: 100% !important;
+  background: url(images/photo-1500964757637-c85e8a162699.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Landing */
+
+.landing { 
+  width: 100%;
+  height: 100% !important;
+  background: url(images/photo-1533240332313-0db49b459ad6.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.flex {
+ padding-bottom: 10%;
+}
+
+/* Login */
+
+/* .login { 
+  width: 100%;
+  height: 100% !important;
+  background: url(images/pexels-photo-1736222.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+
+/* Register */
+
+.register { 
+  width: 100%;
+  height: 100% !important;
+  background: url(images/photo-1516083618299-f52dbadfdd40.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-filter: grayscale(75%);
+}
