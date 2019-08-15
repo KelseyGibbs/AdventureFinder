@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const MONGO_URL = process.env.MONGODB_URI || "mongodb://localhost/WholeBaker";
+const MONGO_URL = process.env.MONGODB_URI || "mongodb://localhost/AdventureFinderr";
 // Allow Promises
 mongoose.Promise = global.Promise;
 // Connection

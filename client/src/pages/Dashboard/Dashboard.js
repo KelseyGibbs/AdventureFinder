@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import HikeContainer from "../../components/hikeContainer/HikeContainer"
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -35,6 +36,7 @@ class Dashboard extends Component {
             </button>
           </div>
         </div>
+        <HikeContainer></HikeContainer>
       </div>
     );
   }

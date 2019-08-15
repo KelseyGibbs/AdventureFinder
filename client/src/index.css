@@ -4,6 +4,7 @@ html, body, #root, .App, .container {
  width: 100% !important;
  max-width: 100% !important;
 }
+/* Pages *********/
 
 /* Dashboard */
 
@@ -56,4 +57,20 @@ html, body, #root, .App, .container {
   -o-background-size: cover;
   background-size: cover;
   -webkit-filter: grayscale(75%);
+}
+
+/* Components */
+
+/* Navbar */
+
+.registerlink, .loginlink {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+
+.registerlink {
+  padding-right: 20px;
+}
+
+.loginlink {
+  padding-left: 20px;
 }
