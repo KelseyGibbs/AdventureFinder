@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import Card from "../card/Card";
 import SearchForm from "../searchForm/SearchForm";
-import MovieDetail from "../hikeDetail/HikeDetail";
+import HikeDetail from "../hikeDetail/HikeDetail";
 import API from "../../utils/API";
 
-class OmdbContainer extends Component {
+class HikeContainer extends Component {
   state = {
     result: {},
     search: ""
   };
 
-  // When this component mounts, search for the movie "The Matrix"
+  // When this component mounts, search for the Hike "The Matrix"
   componentDidMount() {
-    this.searchMovies("The Matrix");
+    this.searchHikes("");
   }
 
-  searchMovies = query => {
+  searchHikes = query => {
     API.search(query)
       .then(res => this.setState({ result: res.data }))
       .catch(err => console.log(err));
@@ -32,7 +32,7 @@ class OmdbContainer extends Component {
   // When the form is submitted, search the OMDB API for the value of `this.state.search`
   handleFormSubmit = event => {
     event.preventDefault();
-    this.searchMovies(this.state.search);
+    this.searchHikes(this.state.search);
   };
 
   render() {
@@ -42,10 +42,10 @@ class OmdbContainer extends Component {
         
        
             <Card
-              heading={this.state.result.Title || "Search for a Movie to Begin"}
+              heading={this.state.result.Title || "Search for a Hike to Begin"}
             >
               {this.state.result.Title ? (
-                <MovieDetail
+                <HikeDetail
                   title={this.state.result.Title}
                   src={this.state.result.Poster}
                   director={this.state.result.Director}
@@ -72,4 +72,4 @@ class OmdbContainer extends Component {
   }
 }
 
-export default OmdbContainer;
+export default HikeContainer;

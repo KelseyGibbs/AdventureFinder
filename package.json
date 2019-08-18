@@ -1,7 +1,7 @@
 {
-  "name": "mern-auth",
+  "name": "adventurefinder",
   "version": "1.0.0",
-  "description": "Mern Auth Example",
+  "description": "App to help find hiking adventures.",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
@@ -23,5 +23,14 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "validator": "^10.9.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KelseyGibbs/AdventureFinder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KelseyGibbs/AdventureFinder/issues"
+  },
+  "homepage": "https://github.com/KelseyGibbs/AdventureFinder#readme"
 }

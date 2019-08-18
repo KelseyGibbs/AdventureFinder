@@ -1,6 +1,6 @@
 import React from "react";
 
-function MovieDetail(props) {
+function HikeDetail(props) {
   return (
     <div className="text-center">
       <img alt={props.title} className="img-fluid" src={props.src} style={{ margin: "0 auto" }} />
@@ -11,4 +11,6 @@ function MovieDetail(props) {
   );
 }
 
-export default MovieDetail;
+export default HikeDetail;
+
+
