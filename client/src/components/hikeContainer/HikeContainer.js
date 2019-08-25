@@ -8,7 +8,9 @@ class HikeContainer extends Component {
   state = {
     result: {},
     search: ""
+    
   };
+
 
   // When this component mounts, search for the Hike "The Matrix"
   componentDidMount() {
