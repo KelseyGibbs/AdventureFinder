@@ -9,9 +9,6 @@ class Navbar extends Component {
           <div className="nav-wrapper white">
             <Link
               to="/"
-              style={{
-                fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;'
-              }}
               className="brand-logo center black-text"
             >
              AdventureBound

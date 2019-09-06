@@ -19,24 +19,24 @@ class Dashboard extends Component {
           <div className="landing-copy col s12 center-align">
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}
-              
-
             </h4>
             <button
               style={{
-                width: "150px",
-                borderRadius: "3px",
+                width: "145px",
+                borderRadius: "13px",
                 letterSpacing: "1.5px",
                 marginTop: "1rem"
               }}
               onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              className="btn"
             >
               Logout
             </button>
           </div>
-        </div>
+          <div className="landing-copy col s12 center-align">
         <HikeContainer></HikeContainer>
+        </div>
+        </div>
       </div>
     );
   }
