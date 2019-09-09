@@ -314,7 +314,8 @@ constructor(){
 
   render() {
     return (
-      <div>
+      <div className="row">
+          <div className="landing-copy col s12 center-align">
             <Card heading="Search">
               <SearchForm
                 value={this.state.search}
@@ -324,9 +325,13 @@ constructor(){
             </Card>
             <If condition={this.state.hasSearched === true}>
             <Card heading={searched.trails[1].name || "hi"}>
+            <HikeDetail src={searched.trails[1].imgSmall}>
+          
+            </HikeDetail>
             </Card>
             </If>
-        </div>
+          </div>
+      </div>
     );
   }
 }

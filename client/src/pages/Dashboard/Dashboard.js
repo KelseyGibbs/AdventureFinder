@@ -33,10 +33,11 @@ class Dashboard extends Component {
               Logout
             </button>
           </div>
-          <div className="landing-copy col s12 center-align">
+          </div>
+          {/* <div className="landing-copy col s12 center-align"> */}
         <HikeContainer></HikeContainer>
-        </div>
-        </div>
+        {/* </div> */}
+        {/* </div> */}
       </div>
     );
   }
