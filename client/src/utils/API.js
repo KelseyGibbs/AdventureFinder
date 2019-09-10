@@ -15,7 +15,21 @@ export default {
     return (JSON.stringify(myJson));
     
   })
-  }
+  },
+
+  searchAll: function(query) {
+    let thisquery = TOTAL + query;
+    fetch(thisquery)
+    .then(function(response) {
+      console.log("response" + response)
+      return response.json();
+    })
+    .then(function(myJson) {
+      console.log(JSON.stringify(myJson));
+      return (JSON.stringify(myJson));
+      
+    })
+    }
 };
 
 
