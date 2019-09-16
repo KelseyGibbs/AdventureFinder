@@ -11,6 +11,10 @@ const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
 
+// Import and use Hike routes
+const hikeRoutes = require("./hikes");
+router.use("/hikes", hikeRoutes);
+
 router.post("/register", (req, res) => {
 
   const { errors, isValid } = validateRegisterInput(req.body);
