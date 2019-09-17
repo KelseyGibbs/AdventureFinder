@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const passport = require("passport");const cors = require('cors')
+const passport = require("passport");
 
 const users = require("./routes/api/users");
 
@@ -16,9 +16,6 @@ app.use(bodyParser.json());
 
 // DB Config
 require('./DB/dbConnection');
-
-// Use Cors
-app.use(cors())
 
 // Passport middleware
 app.use(passport.initialize());

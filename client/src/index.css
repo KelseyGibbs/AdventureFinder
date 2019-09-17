@@ -1,8 +1,8 @@
 
 html, body, #root, .App, .container {
- height: 100% !important;
  width: 100% !important;
  max-width: 100% !important;
+ height: 100%;
 }
 /* Pages *********/
 
@@ -10,12 +10,21 @@ html, body, #root, .App, .container {
 
 .dashboard { 
   width: 100%;
-  height: 100% !important;
+  height: 800px;
   background: url(images/photo-1500964757637-c85e8a162699.jpeg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#dash {
+  align-content: center;
+  width: 80%;
+  margin-left: 10%;
+  margin-right:10%;
 }
 
 /* Landing */
@@ -74,3 +83,4 @@ html, body, #root, .App, .container {
 .loginlink {
   padding-left: 20px;
 }
+

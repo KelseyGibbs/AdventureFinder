@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../models/Hike");
 
 // Defining methods for the HikesController
 module.exports = {

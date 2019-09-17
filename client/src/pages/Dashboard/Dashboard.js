@@ -14,7 +14,7 @@ class Dashboard extends Component {
     const { user } = this.props.auth;
 
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper dashboard">
+      <div  className="container dashboard">
         <div className="row">
           <div className="landing-copy col s12 center-align">
             <h4>
@@ -34,10 +34,7 @@ class Dashboard extends Component {
             </button>
           </div>
           </div>
-          {/* <div className="landing-copy col s12 center-align"> */}
         <HikeContainer></HikeContainer>
-        {/* </div> */}
-        {/* </div> */}
       </div>
     );
   }

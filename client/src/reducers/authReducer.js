@@ -5,6 +5,11 @@ const isEmpty = require("is-empty");
 const initialState = {
   isAuthenticated: false,
   user: {},
+  hikes: {},
+  search: "37207",
+  hasSearched: false,
+  hasErrors: false,
+  result: {},
   loading: false
 };
 
