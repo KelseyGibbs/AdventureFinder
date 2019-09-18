@@ -1,8 +1,10 @@
+/* eslint-disable no-restricted-globals */
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Card from "../card/Card";
 import SearchForm from "../searchForm/SearchForm";
 import HikeDetail from "../hikeDetail/HikeDetail";
+import { List, ListItem } from "../../components/List";
 import { If, Elif, Else } from 'rc-if-else';
 var zipcodes = require('zipcodes');
 
@@ -11,83 +13,7 @@ class HikeContainer extends Component {
     super();
     this.state = {
       result: {
-        "trails": [
-            {
-                "id": 7000130,
-                "name": "Bear Peak Out and Back",
-                "type": "Featured Hike",
-                "summary": "A must-do hike for Boulder locals and visitors alike!",
-                "difficulty": "blueBlack",
-                "stars": 4.6,
-                "starVotes": 108,
-                "location": "Boulder, Colorado",
-                "url": "https:\/\/www.hikingproject.com\/trail\/7000130\/bear-peak-out-and-back",
-                "imgSqSmall": "https:\/\/cdn-files.apstatic.com\/hike\/7005382_sqsmall_1554312030.jpg",
-                "imgSmall": "https:\/\/cdn-files.apstatic.com\/hike\/7005382_small_1554312030.jpg",
-                "imgSmallMed": "https:\/\/cdn-files.apstatic.com\/hike\/7005382_smallMed_1554312030.jpg",
-                "imgMedium": "https:\/\/cdn-files.apstatic.com\/hike\/7005382_medium_1554312030.jpg",
-                "length": 5.7,
-                "ascent": 2541,
-                "descent": -2540,
-                "high": 8342,
-                "low": 6103,
-                "longitude": -105.2755,
-                "latitude": 39.9787,
-                "conditionStatus": "All Clear",
-                "conditionDetails": "",
-                "conditionDate": "2019-08-10 16:37:58"
-            },
-            {
-                "id": 7004226,
-                "name": "Sunshine Lion's Lair Loop",
-                "type": "Featured Hike",
-                "summary": "Great Mount Sanitas views are the reward for this gentler loop in Sunshine Canyon.",
-                "difficulty": "blue",
-                "stars": 4.5,
-                "starVotes": 103,
-                "location": "Boulder, Colorado",
-                "url": "https:\/\/www.hikingproject.com\/trail\/7004226\/sunshine-lions-lair-loop",
-                "imgSqSmall": "https:\/\/cdn-files.apstatic.com\/hike\/7039883_sqsmall_1555092747.jpg",
-                "imgSmall": "https:\/\/cdn-files.apstatic.com\/hike\/7039883_small_1555092747.jpg",
-                "imgSmallMed": "https:\/\/cdn-files.apstatic.com\/hike\/7039883_smallMed_1555092747.jpg",
-                "imgMedium": "https:\/\/cdn-files.apstatic.com\/hike\/7039883_medium_1555092747.jpg",
-                "length": 5.3,
-                "ascent": 1261,
-                "descent": -1282,
-                "high": 6800,
-                "low": 5530,
-                "longitude": -105.2979,
-                "latitude": 40.02,
-                "conditionStatus": "All Clear",
-                "conditionDetails": "Dry - Careful of ticks in the high grass along Sunshine right now!",
-                "conditionDate": "2019-07-10 14:09:36"
-            },
-            {
-                "id": 7011192,
-                "name": "Boulder Skyline Traverse",
-                "type": "Featured Hike",
-                "summary": "The classic long mountain route in Boulder.",
-                "difficulty": "black",
-                "stars": 4.7,
-                "starVotes": 70,
-                "location": "Superior, Colorado",
-                "url": "https:\/\/www.hikingproject.com\/trail\/7011192\/boulder-skyline-traverse",
-                "imgSqSmall": "https:\/\/cdn-files.apstatic.com\/hike\/7048859_sqsmall_1555540136.jpg",
-                "imgSmall": "https:\/\/cdn-files.apstatic.com\/hike\/7048859_small_1555540136.jpg",
-                "imgSmallMed": "https:\/\/cdn-files.apstatic.com\/hike\/7048859_smallMed_1555540136.jpg",
-                "imgMedium": "https:\/\/cdn-files.apstatic.com\/hike\/7048859_medium_1555540136.jpg",
-                "length": 16.3,
-                "ascent": 5409,
-                "descent": -5492,
-                "high": 8492,
-                "low": 5417,
-                "longitude": -105.2582,
-                "latitude": 39.9388,
-                "conditionStatus": "All Clear",
-                "conditionDetails": "Dry",
-                "conditionDate": "2019-07-30 17:52:30"
-            }
-        ],
+        "trails": [],
         "success": 1
       },
       search: "",
@@ -95,13 +21,14 @@ class HikeContainer extends Component {
       hasErrors: false,
       hike: {}
     }
+    this.handleClick = this.handleClick.bind(this)
   };
   
   
   // When this component mounts, search for the Hikes
   componentDidMount() {
-    const query = "?lat=40.0274&lon=-105.2519&maxDistance=10";
-    this.searchHikes(query);
+    // const query = "?lat=40.0274&lon=-105.2519&maxDistance=10";
+    // this.searchHikes(query);
   }
   
   searchHikes = query => { 
@@ -138,55 +65,68 @@ class HikeContainer extends Component {
   }
 
 
-handleClick = event => {
+handleClick = id => {
   event.preventDefault()
-  const { name, value } = event.target;
-  this.setState({
-    [name]: value
-  });
-  console.log(this.state.hike)
+  const value = id;
+  // const { name, value } = event.target;
+  // this.setState({
+  //   [name]: value
+  // });
+  console.log(value);
 };
 
   render() {
     return (
       <div className="row">
-          <div id="dash" className="landing-copy col s12 center-align">
-            <Card heading="Search">
-              <SearchForm
-                value={this.state.search}
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-                
-                />
-            </Card>
-            <If 
-                condition={this.state.hasSearched === true}>
-                
-      <form>
+      <div id="dash" className="landing-copy col s12 center-align">
+        <Card heading="Search">
+          <SearchForm
+            handleInputChange={this.handleInputChange}
+            handleFormSubmit={this.handleFormSubmit}
+            
+            />
+        </Card>
+          {this.state.result.trails.length ? (
+            <List>
+              {this.state.result.trails.map(trails => {
+                return (
+                  <ListItem key={trails.id}>
 
-      <div className="card">
-      <input type="hidden" name="hike" value={this.state.result.trails[1].id} />
-      <div className="card-header">
-      <h1>{this.state.result.trails[1].name}</h1>
-                <div className="text-center">
-                    <img alt={this.state.result.trails[1].name} className="img-fluid" src={this.state.result.trails[1].imgSmall} />
-                </div>
-      </div>
-      <div className="card-body">
-            {/* <input type="button" className="btn" value={this.state.result.trails[1].id} defaultChecked={false} onClick={((event) => this.handleClick(event, this.state.result.trails[1].id))}/> */}
-            <span className="save-btn btn" role="button"
-            value={this.state.result.trails[1].id}
-            onClick={this.handleClick}
-            >Save Hike</span>
     
-                </div>
-     </div>
-            </form>
-            </If>
-          </div>
+  <div className="card">
+    <div className="card-header">
+        <h3>{trails.name}</h3>
+        <h5>{trails.location}</h5>
+    </div>
+    <div className="card-body">
+    <div className="text-center">
+        <img alt={trails.name} className="img-fluid" src={trails.imgSmall} />
+        <p>Trails ID: {trails.id}</p>
+        <p>Trail Length: {trails.id}</p>
+        <p>Summary: {trails.summary}</p>
+        <p>Ascent: {trails.ascent}</p>
+        <p>Descent: {trails.descent}</p>
+        <p>High: {trails.high}</p>
+        <p>Low: {trails.low}</p>
+    </div>
+        <span className="save-btn btn" role="button"
+        onClick={() => this.handleClick(trails.id)}
+        >Save Hike</span>
+        
+        </div>
+  </div>
+     
+</ListItem>
+        )
+      })}
+        </List>
+          ) : (
+            <h3>No Results to Display</h3>
+)}  
       </div>
+    </div>
     );
-  }
-}
+    }
+    }
 
 export default HikeContainer;

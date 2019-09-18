@@ -10,7 +10,16 @@ mongoose.connect(
 
 const hikeSeed = [
   {
-    name: "the big loop"
+    userID: "5d5425bb25562b3d3e2ff1e0",
+    ID: "7003859",
+    name: "hike this landscape",
+    location: "here",
+    length: 1,
+    ascent: 1,
+    descent: 100,
+    high: 2,
+    low: 1,
+    imgSmall: "https://cdn-files.apstatic.com/hike/7030317_small_1554926735.jpg"
   }
 ];
 
