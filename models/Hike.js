@@ -6,7 +6,8 @@ const hikeSchema = new Schema({
   userid: { 
     type: String,
     required: true
-  },
+  }
+  ,
   id: {
     type: Number,
     required: true

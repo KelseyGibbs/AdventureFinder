@@ -31,8 +31,5 @@
     "type": "git",
     "url": "git+https://github.com/KelseyGibbs/AdventureFinder.git"
   },
-  "bugs": {
-    "url": "https://github.com/KelseyGibbs/AdventureFinder/issues"
-  },
   "homepage": "https://github.com/KelseyGibbs/AdventureFinder#readme"
 }

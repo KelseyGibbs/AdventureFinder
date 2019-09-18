@@ -9,7 +9,7 @@ import SearchForm from "../searchForm/SearchForm";
 import HikeDetail from "../hikeDetail/HikeDetail";
 import { List, ListItem } from "../../components/List";
 import { If, Elif, Else } from 'rc-if-else';
-import API from "../../utils/userHikes";
+import userHikes from "../../utils/userHikes";
 var zipcodes = require('zipcodes');
 
 class HikeContainer extends Component {
@@ -118,7 +118,7 @@ handleClick = (
     low: thisLow,
     imgSmall: thisImgSmall
   })
-  API.saveHike({
+  userHikes.saveHike({
     userid: this.state.userid,
     id: this.state.id,
     name: this.state.name,
@@ -131,8 +131,10 @@ handleClick = (
     low: this.state.low,
     imgSmall: this.state.imgSmall
   })
-    .then(res => this.loadHikes())
-    .catch(err => console.log(err));
+    .then(response => { 
+      console.log(response)})
+    .catch(error => {
+      console.log(error.response)})
 };
 
   render() {
@@ -172,18 +174,18 @@ handleClick = (
         <p>userID: {user.id}</p>
     </div>
         <span className="save-btn btn" role="button"
-        onClick={() => this.handleClick
-          ( user.id,
-            trails.id, 
-            trails.name, 
-            trails.location, 
-            trails.length,  
-            trails.summary, 
-            trails.ascent, 
-            trails.descent, 
-            trails.high, 
-            trails.low,
-            trails.imgSmall)}
+        onClick={() => this.handleClick( 
+          user.id,
+          trails.id, 
+          trails.name, 
+          trails.location, 
+          trails.length,  
+          trails.summary, 
+          trails.ascent, 
+          trails.descent, 
+          trails.high, 
+          trails.low,
+          trails.imgSmall)}
         >Save Hike</span>
         
         </div>
