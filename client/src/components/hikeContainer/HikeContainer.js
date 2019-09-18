@@ -92,7 +92,8 @@ class HikeContainer extends Component {
       },
       search: "",
       hasSearched: false,
-      hasErrors: false
+      hasErrors: false,
+      hike: {}
     }
   };
   
@@ -132,15 +133,18 @@ class HikeContainer extends Component {
     var query = "?lat=" + lat + "&lon=" + long;
     this.searchHikes(query)
     this.setState({ searched: this.state.result })
+    console.log(this.state.result);
     this.setState({hasSearched: true})
   }
 
 
 handleClick = event => {
   event.preventDefault()
-  const value = this.value;
-  console.log(value)
-  
+  const { name, value } = event.target;
+  this.setState({
+    [name]: value
+  });
+  console.log(this.state.hike)
 };
 
   render() {
@@ -152,21 +156,37 @@ handleClick = event => {
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
+                
                 />
             </Card>
-            <If condition={this.state.hasSearched === true}>
-            <Card heading={this.state.result.trails[1].name || "hi"}>
-            <HikeDetail src={this.state.result.trails[1].imgSmall}>
-            </HikeDetail>
+            <If 
+                condition={this.state.hasSearched === true}>
+                
+      <form>
+
+      <div className="card">
+      <input type="hidden" name="hike" value={this.state.result.trails[1].id} />
+      <div className="card-header">
+      <h1>{this.state.result.trails[1].name}</h1>
+                <div className="text-center">
+                    <img alt={this.state.result.trails[1].name} className="img-fluid" src={this.state.result.trails[1].imgSmall} />
+                </div>
+      </div>
+      <div className="card-body">
+            {/* <input type="button" className="btn" value={this.state.result.trails[1].id} defaultChecked={false} onClick={((event) => this.handleClick(event, this.state.result.trails[1].id))}/> */}
             <span className="save-btn btn" role="button"
-                value={this.state.result.trails[1]}
-                onClick={this.handleClick}
-                >Save Hike</span>
-            </Card>
+            value={this.state.result.trails[1].id}
+            onClick={this.handleClick}
+            >Save Hike</span>
+    
+                </div>
+     </div>
+            </form>
             </If>
           </div>
       </div>
     );
   }
 }
+
 export default HikeContainer;

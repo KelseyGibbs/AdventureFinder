@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { If, Else } from 'rc-if-else';
+import { If } from 'rc-if-else';
 
 class Navbar extends Component {
   render() {

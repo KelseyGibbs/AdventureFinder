@@ -4,7 +4,7 @@ function HikeDetail(props) {
   return (
     <Card>
     <div className="text-center">
-      <img alt={props.name} className="img-fluid" src={props.src} style={{ margin: "0 auto" }} />
+      <img alt={props.name} className="img-fluid" src={props.src} vaule={props.id} />
     </div>
     </Card>
   );
