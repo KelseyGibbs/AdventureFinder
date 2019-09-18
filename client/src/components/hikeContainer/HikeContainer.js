@@ -1,11 +1,15 @@
 /* eslint-disable no-restricted-globals */
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions";
 import Card from "../card/Card";
 import SearchForm from "../searchForm/SearchForm";
 import HikeDetail from "../hikeDetail/HikeDetail";
 import { List, ListItem } from "../../components/List";
 import { If, Elif, Else } from 'rc-if-else';
+import API from "../../utils/userHikes";
 var zipcodes = require('zipcodes');
 
 class HikeContainer extends Component {
@@ -19,7 +23,18 @@ class HikeContainer extends Component {
       search: "",
       hasSearched: false,
       hasErrors: false,
-      hike: {}
+      hike: {},
+      userid: "",
+      id: "",
+      name: "",
+      location: "",
+      length: null,
+      summary: "",
+      ascent: null,
+      descent: null,
+      high: null,
+      low: null,
+      imgSmall: ""
     }
     this.handleClick = this.handleClick.bind(this)
   };
@@ -65,17 +80,63 @@ class HikeContainer extends Component {
   }
 
 
-handleClick = id => {
+handleClick = (
+  userid,
+  id, 
+  name, 
+  location, 
+  length, 
+  summary, 
+  ascent, 
+  descent, 
+  high, 
+  low,
+  imgSmall) => {
   event.preventDefault()
-  const value = id;
-  // const { name, value } = event.target;
-  // this.setState({
-  //   [name]: value
-  // });
-  console.log(value);
+ let thisUserID = userid
+  let thisID = id
+  let thisName = name
+  let thisLocation = location
+  let thisLength = length
+  let thisSummary = summary
+  let thisAscent = ascent
+  let thisDescent = descent
+  let thisHigh = high
+  let thisLow = low
+  let thisImgSmall = imgSmall
+  console.log(thisUserID);
+  this.setState({
+    userid: thisUserID,
+    id: thisID,
+    name: thisName,
+    location: thisLocation,
+    length: thisLength,
+    summary: thisSummary,
+    ascent: thisAscent,
+    descent: thisDescent,
+    high: thisHigh,
+    low: thisLow,
+    imgSmall: thisImgSmall
+  })
+  API.saveHike({
+    userid: this.state.userid,
+    id: this.state.id,
+    name: this.state.name,
+    location: this.state.location,
+    length: this.state.length,
+    summary: this.state.summary,
+    ascent: this.state.ascent,
+    descent: this.state.descent,
+    high: this.state.high,
+    low: this.state.low,
+    imgSmall: this.state.imgSmall
+  })
+    .then(res => this.loadHikes())
+    .catch(err => console.log(err));
 };
 
   render() {
+    const { user } = this.props.auth;
     return (
       <div className="row">
       <div id="dash" className="landing-copy col s12 center-align">
@@ -86,7 +147,7 @@ handleClick = id => {
             
             />
         </Card>
-          {this.state.result.trails.length ? (
+          { this.state.result.trails.length ? (
             <List>
               {this.state.result.trails.map(trails => {
                 return (
@@ -102,15 +163,27 @@ handleClick = id => {
     <div className="text-center">
         <img alt={trails.name} className="img-fluid" src={trails.imgSmall} />
         <p>Trails ID: {trails.id}</p>
-        <p>Trail Length: {trails.id}</p>
+        <p>Trail Length: {trails.length}</p>
         <p>Summary: {trails.summary}</p>
         <p>Ascent: {trails.ascent}</p>
         <p>Descent: {trails.descent}</p>
         <p>High: {trails.high}</p>
         <p>Low: {trails.low}</p>
+        <p>userID: {user.id}</p>
     </div>
         <span className="save-btn btn" role="button"
-        onClick={() => this.handleClick(trails.id)}
+        onClick={() => this.handleClick
+          ( user.id,
+            trails.id, 
+            trails.name, 
+            trails.location, 
+            trails.length,  
+            trails.summary, 
+            trails.ascent, 
+            trails.descent, 
+            trails.high, 
+            trails.low,
+            trails.imgSmall)}
         >Save Hike</span>
         
         </div>
@@ -129,4 +202,17 @@ handleClick = id => {
     }
     }
 
-export default HikeContainer;
+
+HikeContainer.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(HikeContainer);

@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+const MONGO_URL = process.env.MONGODB_URI || "mongodb://localhost/AdventureFinderr"
 
-// This file empties the hikes collection and inserts the hikes below
+// Allow Promises
+// mongoose.Promise = global.Promise
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost/reactreadinglist"
-);
+// Connection
+mongoose.connect(MONGO_URL, { useNewUrlParser: true })
 
 const hikeSeed = [
   {
@@ -18,7 +18,7 @@ const hikeSeed = [
     ascent: 1,
     descent: 100,
     high: 2,
-    low: 1,
+    low: 99,
     imgSmall: "https://cdn-files.apstatic.com/hike/7030317_small_1554926735.jpg"
   }
 ];

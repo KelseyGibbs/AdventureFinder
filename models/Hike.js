@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Create Schema
-const HikeSchema = new Schema({
-  userName: { 
+const hikeSchema = new Schema({
+  userid: { 
     type: String,
     required: true
   },
-  ID: {
+  id: {
     type: Number,
     required: true
   },
@@ -20,6 +20,10 @@ const HikeSchema = new Schema({
     required: true
   },
   length: {
+    type: String,
+    required: false
+  },
+  summary: {
     type: String,
     required: false
   },
@@ -48,5 +52,6 @@ const HikeSchema = new Schema({
     default: Date.now
   }
 });
+const Hike = mongoose.model("Hike", hikeSchema);
 
-module.exports = Hike = mongoose.model("Hikes", HikeSchema);
+module.exports = Hike;

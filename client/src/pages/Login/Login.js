@@ -129,6 +129,7 @@ Login.propTypes = {
 
 const mapStateToProps = state => ({
   auth: state.auth,
+  // trails: state,
   errors: state.errors
 });
 
