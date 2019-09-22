@@ -93,48 +93,37 @@ handleClick = (
   low,
   imgSmall) => {
   event.preventDefault()
- let thisUserID = userid
-  let thisID = id
-  let thisName = name
-  let thisLocation = location
-  let thisLength = length
-  let thisSummary = summary
-  let thisAscent = ascent
-  let thisDescent = descent
-  let thisHigh = high
-  let thisLow = low
-  let thisImgSmall = imgSmall
-  console.log(thisUserID);
   this.setState({
-    userid: thisUserID,
-    id: thisID,
-    name: thisName,
-    location: thisLocation,
-    length: thisLength,
-    summary: thisSummary,
-    ascent: thisAscent,
-    descent: thisDescent,
-    high: thisHigh,
-    low: thisLow,
-    imgSmall: thisImgSmall
+    userid: userid,
+    id: id,
+    name: name,
+    location: location,
+    length: length,
+    summary: summary,
+    ascent: ascent,
+    descent: descent,
+    high: high,
+    low: low,
+    imgSmall: imgSmall
+  }, function () {
+    userHikes.saveHike({
+      userid: this.state.userid,
+      id: this.state.id,
+      name: this.state.name,
+      location: this.state.location,
+      length: this.state.length,
+      summary: this.state.summary,
+      ascent: this.state.ascent,
+      descent: this.state.descent,
+      high: this.state.high,
+      low: this.state.low,
+      imgSmall: this.state.imgSmall
+    })
+      .then(response => { 
+        console.log(response)})
+      .catch(error => {
+        console.log(error.response)})
   })
-  userHikes.saveHike({
-    userid: this.state.userid,
-    id: this.state.id,
-    name: this.state.name,
-    location: this.state.location,
-    length: this.state.length,
-    summary: this.state.summary,
-    ascent: this.state.ascent,
-    descent: this.state.descent,
-    high: this.state.high,
-    low: this.state.low,
-    imgSmall: this.state.imgSmall
-  })
-    .then(response => { 
-      console.log(response)})
-    .catch(error => {
-      console.log(error.response)})
 };
 
   render() {

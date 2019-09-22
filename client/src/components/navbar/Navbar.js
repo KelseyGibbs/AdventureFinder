@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { If } from 'rc-if-else';
+import { If, ElIf, Else } from 'rc-if-else';
 
 class Navbar extends Component {
   render() {
     return (
       <div>
           <If condition={ window.location.href.indexOf("dashboard") != -1 === true}>
-          
-              </If>
-              <If condition={ window.location.href.indexOf("dashboard") != -1 === false}>
+
+              <ElIf condition={ window.location.href.indexOf("results") != -1 === true}>
+              
+              </ElIf>
+              <Else>
               <div className="navbar-fixed">
               <nav className="z-depth-0">
             <div className="nav-wrapper white">
@@ -34,6 +36,7 @@ class Navbar extends Component {
               </div>
               </nav>
               </div>
+              </Else>
               </If>
   </div>
     );
