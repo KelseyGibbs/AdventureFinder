@@ -1,14 +1,11 @@
 /* eslint-disable no-restricted-globals */
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import Card from "../card/Card";
 import SearchForm from "../searchForm/SearchForm";
-import HikeDetail from "../hikeDetail/HikeDetail";
 import { List, ListItem } from "../../components/List";
-import { If, Elif, Else } from 'rc-if-else';
 import userHikes from "../../utils/userHikes";
 var zipcodes = require('zipcodes');
 
@@ -21,6 +18,8 @@ class HikeContainer extends Component {
         "success": 1
       },
       search: "",
+      searchDrive: null,
+      searchHike: null,
       hasSearched: false,
       hasErrors: false,
       hike: {},
@@ -34,7 +33,8 @@ class HikeContainer extends Component {
       descent: null,
       high: null,
       low: null,
-      imgSmall: ""
+      imgSmall: "",
+      weird: ""
     }
     this.handleClick = this.handleClick.bind(this)
   };
@@ -50,7 +50,7 @@ class HikeContainer extends Component {
     const BASEURL = "https://www.hikingproject.com/data/get-trails";
     const APIKEY = "&key=200559603-3fbad4d84fcb99d1ee9432d2fcd6f2da";
     const TOTAL = (BASEURL + query + APIKEY);
-    console.log(query)  
+    console.log(TOTAL)  
       fetch(TOTAL)
       .then(res => res.json())
       .then(res => this.setState({ result: res }))
@@ -72,7 +72,10 @@ class HikeContainer extends Component {
     var zip = zipcodes.lookup(this.state.search)
     var lat = zip.latitude
     var long = zip.longitude
-    var query = "?lat=" + lat + "&lon=" + long;
+    var maxDistance = this.state.searchDrive;
+    var minLength = this.state.searchHike
+    var query = "?lat=" + lat + "&lon=" + long + "&maxDistance=" + maxDistance + "&minLength=" + minLength;
+    
     this.searchHikes(query)
     this.setState({ searched: this.state.result })
     console.log(this.state.result);
@@ -93,6 +96,8 @@ handleClick = (
   low,
   imgSmall) => {
   event.preventDefault()
+  var weird = userid + id;
+  console.log(weird)
   this.setState({
     userid: userid,
     id: id,
@@ -104,7 +109,8 @@ handleClick = (
     descent: descent,
     high: high,
     low: low,
-    imgSmall: imgSmall
+    imgSmall: imgSmall,
+    weird: weird
   }, function () {
     userHikes.saveHike({
       userid: this.state.userid,
@@ -117,7 +123,8 @@ handleClick = (
       descent: this.state.descent,
       high: this.state.high,
       low: this.state.low,
-      imgSmall: this.state.imgSmall
+      imgSmall: this.state.imgSmall,
+      weird: this.state.weird
     })
       .then(response => { 
         console.log(response)})
@@ -129,7 +136,7 @@ handleClick = (
   render() {
     const { user } = this.props.auth;
     return (
-      <div className="row">
+      <div className="row thisdash">
       <div id="dash" className="landing-copy col s12 center-align">
         <Card heading="Search">
           <SearchForm
@@ -185,7 +192,7 @@ handleClick = (
       })}
         </List>
           ) : (
-            <h3>No Results to Display</h3>
+            <h3>Enter your zip code to find hikes near you!</h3>
 )}  
       </div>
     </div>

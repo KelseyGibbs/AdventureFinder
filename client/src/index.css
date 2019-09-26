@@ -9,17 +9,11 @@ html, body, #root, .App, .container {
 
 /* Dashboard */
 
-.dashboard { 
-  width: 100%;
-  background: url(images/photo-1500964757637-c85e8a162699.jpeg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* background-attachment: fixed; */
-  height: 100% !important;
-  background-attachment: local;
+
+.thisdash { 
+  background: url(images/photo-1500964757637-c85e8a162699.jpeg)no-repeat center center fixed;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 .heyThere {
@@ -70,6 +64,18 @@ html, body, #root, .App, .container {
 /* Register */
 
 .register { 
+  width: 100%;
+  height: 100% !important;
+  background: url(images/photo-1516083618299-f52dbadfdd40.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-filter: grayscale(75%);
+}
+
+/* Results */
+.results {
   width: 100%;
   height: 100% !important;
   background: url(images/photo-1516083618299-f52dbadfdd40.jpeg) no-repeat center center fixed; 

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+var uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 
 // Create Schema
@@ -48,11 +49,18 @@ const hikeSchema = new Schema({
     type: String,
     required: false
   },
+  weird: {
+    type: String,
+    required: true,
+    unique: true
+  },
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  
 });
+hikeSchema.plugin(uniqueValidator)
 const Hike = mongoose.model("Hike", hikeSchema);
 
 module.exports = Hike;

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -9,7 +10,9 @@ import { If, Elif, Else } from 'rc-if-else';
 
 
 class Results extends Component {
-  state = {
+  constructor(){
+    super();
+    this.state = {
     hikes: [{"ascent": 1340,
       "date": "2019-09-20T16:55:51.609Z",
       "descent": -1342,
@@ -33,7 +36,10 @@ class Results extends Component {
       "name": "Red, White, and Blue",
       "summary": "A nice singletrack course through Percy and Edwin Warner Parks.",
       "userid": "5d5425bb25562b3d3e2ff1e0"}],
-    set: false
+    set: false,
+    id: ""
+  }
+  this.handleClick = this.handleClick.bind(this)
   };
   
   onLogoutClick = e => {
@@ -65,6 +71,11 @@ class Results extends Component {
       })
       console.log(mine2)
 
+      let dupes = mine.filter(function(hike) {
+        return hike.id
+      })
+  
+      console.log(dupes)
       
       this.setState({ hikes: mine2, set: true})
     }
@@ -83,18 +94,16 @@ class Results extends Component {
         .catch(err => console.log(err));
 
     };
-
-    // componentDidUpdate() {
-    //   // Typical usage (don't forget to compare props):
-    //   if (this.props.userID !== prevProps.userID) {
-    //     this.fetchData(this.props.userID);
-    //   }
-    // }
-
-    // myFunction = () => {
-    //   this.props.updateItem(this.state)
-    // }
-
+    
+    handleClick = (
+      id) => {
+      event.preventDefault()
+      console.log(id)
+        userHikes.deleteHike(id)
+        .then(res => this.loadHikes())
+        .catch(err => console.log(err));
+      
+    };
   render() {
     const { user } = this.props.auth;
     // const { hikes } = this.state.hikes;
@@ -106,11 +115,22 @@ class Results extends Component {
               <nav className="z-depth-0">
             <div className="nav-wrapper white">
             <h4 className="left black-text heyThere">
-              <b>Hey there,</b> {user.name.split(" ")[0]}
+              <b>AdventureFinder</b>
             </h4>
-            <p>userID: {user.id}</p>
+            <p style={{
+  position: "absolute",
+
+  width: "1px",
+  height: "1px",
+  margin: "-1px",
+  border: "0",
+  padding: "0",
+
+  clip: "rect(0 0 0 0)",
+  overflow: "hidden"
+}}>userID: {user.id}</p>
 <Link 
-to="/"
+to="/dashboard"
 className="btn fake"
 style={{
   width: "132px",
@@ -118,7 +138,7 @@ style={{
   letterSpacing: "1.5px",
   marginTop: "1rem",
 }}
->Your Hikes</Link>
+>Search</Link>
             <button
               style={{
                 width: "132px",
@@ -136,7 +156,8 @@ style={{
           </div>
               </div>
               <div className="row">
-              <div className="col-md-12">
+              <div className="col s1"></div>
+              <div className="col s10">
               <If condition={this.state.set === true}>
               { this.state.hikes.length ? (
                 <List>
@@ -161,20 +182,10 @@ style={{
         <p>Low: {hikes.low}</p>
         <p>userID: {user.id}</p>
     </div>
-        <span className="save-btn btn" role="button"
+        <span className="delete-btn btn" role="button"
         onClick={() => this.handleClick( 
-          user.id,
-          hikes.id, 
-          hikes.name, 
-          hikes.location, 
-          hikes.length,  
-          hikes.summary, 
-          hikes.ascent, 
-          hikes.descent, 
-          hikes.high, 
-          hikes.low,
-          hikes.imgSmall)}
-          >Save Hike</span>
+          hikes._id)}
+          >Delete</span>
         </div>
   </div>
      
@@ -183,11 +194,15 @@ style={{
       })}
         </List>
           ) : (
-            <h3>No Results to Display</h3>
+            <div>
+            <h3>No Saved Hikes to Display</h3>
+            <h2>Search for Hikes from the dashboard!</h2>
+            </div>
             )}  
             </If>
 
 </div>
+<div className="col s1"></div>
 </div>
       </div>
     );

@@ -16,16 +16,16 @@ class Dashboard extends Component {
 
     return (
       <div  className="container dashboard">
-      <div className="row">
+
 <div className="navbar-fixed">
               <nav className="z-depth-0">
-            <div className="nav-wrapper white">
+            <div className="nav-wrapper indigo lighten-5">
             <h4 className="left black-text heyThere">
               <b>Hey there,</b> {user.name.split(" ")[0]}
             </h4>
 <Link 
-to="/"
-className="btn fake"
+to="/results"
+className="btn right fake"
 style={{
   width: "132px",
   borderRadius: "13px",
@@ -41,14 +41,14 @@ style={{
                 marginTop: "1rem"
               }}
               onClick={this.onLogoutClick}
-              className="btn"
+              className="btn right"
               >
               Logout
             </button>
             </div>
           </nav>
           </div>
-              </div>
+             
         <HikeContainer></HikeContainer>
       </div>
     );
