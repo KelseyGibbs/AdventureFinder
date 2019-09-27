@@ -109,7 +109,7 @@ class Results extends Component {
     // const { hikes } = this.state.hikes;
 
     return (
-      <div  className="container results">
+      <div  className="container">
       <div className="row">
 <div className="navbar-fixed">
               <nav className="z-depth-0">
@@ -155,7 +155,7 @@ style={{
           </nav>
           </div>
               </div>
-              <div className="row">
+              <div className="row results">
               <div className="col s1"></div>
               <div className="col s10">
               <If condition={this.state.set === true}>

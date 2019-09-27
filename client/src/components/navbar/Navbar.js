@@ -14,7 +14,7 @@ class Navbar extends Component {
               <Else>
               <div className="navbar-fixed">
               <nav className="z-depth-0">
-            <div className="nav-wrapper white">
+            <div className="nav-wrapper blue-grey lighten-5">
               <Link
               to="/"
               className="brand-logo center black-text"

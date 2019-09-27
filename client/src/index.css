@@ -42,8 +42,12 @@ html, body, #root, .App, .container {
   background-size: cover;
 }
 
+.landed {
+  padding-top: 1in;
+}
+
 .flex {
- padding-bottom: 10%;
+padding-top: .3in;
 }
 
 /* Login */
@@ -51,7 +55,7 @@ html, body, #root, .App, .container {
 .login { 
   width: 100%;
   height: 100% !important;
-  background: url(images/pexels-photo-1736222.jpeg) no-repeat center center fixed; 
+  background: url(images/pexels-photo.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -61,29 +65,28 @@ html, body, #root, .App, .container {
   height: 100%;
 }
 
+#root > div > div > div.container.login > div > div {
+  padding-top: 1in;
+  
+}
+
 /* Register */
 
 .register { 
   width: 100%;
   height: 100% !important;
-  background: url(images/photo-1516083618299-f52dbadfdd40.jpeg) no-repeat center center fixed; 
+  background: url(images/pexels-photo.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  -webkit-filter: grayscale(75%);
 }
 
 /* Results */
 .results {
-  width: 100%;
-  height: 100% !important;
-  background: url(images/photo-1516083618299-f52dbadfdd40.jpeg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  -webkit-filter: grayscale(75%);
+  background: url(images/pexels-photo-1365428.jpeg)no-repeat center center fixed;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 /* Components */
