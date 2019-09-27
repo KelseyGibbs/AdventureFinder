@@ -1,3 +1,3 @@
 module.exports = {
-  Hike: require("./hike")
+  Hike: require("./Hike")
 };
