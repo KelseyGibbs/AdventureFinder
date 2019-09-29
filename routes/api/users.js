@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
+const passport = require("passport");
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -10,10 +11,6 @@ const validateLoginInput = require("../../validation/login");
 
 // Load User model
 const User = require("../../models/User");
-
-// Import and use Hike routes
-const hikeRoutes = require("./hikes");
-router.use("/hikes", hikeRoutes);
 
 router.post("/register", (req, res) => {
 

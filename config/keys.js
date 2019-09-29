@@ -1,4 +1,5 @@
 module.exports = {
-    secretOrKey: "secret"
+    secretOrKey: "secret",
+    MONGO_URL: process.env.MONGO_URL 
   };
   

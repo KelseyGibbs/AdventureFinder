@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import userHikes from "../../utils/userHikes";
 import { List, ListItem } from "../../components/List";
-import { If, Elif, Else } from 'rc-if-else';
+import { If, ElIf, Else } from 'rc-if-else';
 
 
 class Results extends Component {
@@ -55,7 +55,6 @@ class Results extends Component {
     sortmine = () => {
       let allhikes = this.state.hikes
       let userid = this.props.auth.user.id
-      console.log(allhikes[7].userid)
       console.log(userid)
 
 
@@ -74,9 +73,9 @@ class Results extends Component {
       let dupes = mine.filter(function(hike) {
         return hike.id
       })
-  
+
       console.log(dupes)
-      
+            
       this.setState({ hikes: mine2, set: true})
     }
 
@@ -200,6 +199,11 @@ style={{
             </div>
             )}  
             </If>
+            <Else>
+              <div>
+
+              </div>
+            </Else>
 
 </div>
 <div className="col s1"></div>

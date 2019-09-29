@@ -1,114 +1,117 @@
-
 html, body, #root, .App, .container {
- width: 100% !important;
- max-width: 100% !important;
- margin-bottom: 0;
- height:100% !important;
-}
-/* Pages *********/
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-bottom: 0;
+  height:100% !important;
+ }
+ /* Pages *********/
+ 
+ /* Dashboard */
+ 
+ 
+ .thisdash { 
+   background: url(images/photo-1500964757637-c85e8a162699.jpeg)no-repeat center center fixed;
+   min-height: 100%;
+   min-width: 100%;
+ }
+ 
+ .heyThere {
+   padding-right: .5in;
+ }
+ 
+ .fake {
+   margin-right: .1in;
+ }
+ #dash {
+   align-content: center;
+   width: 80%;
+   margin-left: 10%;
+   margin-right:10%;
+ }
+ 
+ /* Landing */
+ 
+ .landing { 
+   width: 100%;
+   height: 100% !important;
+   background: url(images/photo-1533240332313-0db49b459ad6.jpeg) no-repeat center center fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+ }
+ 
+ .landed {
+   padding-top: 1in;
+ }
+ 
+ .flex {
+ padding-top: .3in;
+ }
+ 
+ /* Login */
+ 
+ .login { 
+   width: 100%;
+   height: 100% !important;
+   background: url(images/pexels-photo.jpg) no-repeat center center fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   height: 100%;
+ }
+ 
+ #root > div > div > div.container.login > div > div {
+   padding-top: 1in;
+   
+ }
+ 
+ /* Register */
+ 
+ .register { 
+   width: 100%;
+   height: 100% !important;
+   background: url(images/pexels-photo.jpg) no-repeat center center fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+ }
+ 
+ /* Results */
+ .results {
+   background: url(images/pexels-photo-1365428.jpeg)no-repeat center center fixed;
+   min-height: 100%;
+   min-width: 100%;
+ }
+ 
+ /* Components */
+ 
+ /* Navbar */
 
-/* Dashboard */
-
-
-.thisdash { 
-  background: url(images/photo-1500964757637-c85e8a162699.jpeg)no-repeat center center fixed;
-  min-height: 100%;
-  min-width: 100%;
-}
-
-.heyThere {
-  padding-right: .5in;
-}
-
-.fake {
-  margin-right: .1in;
-}
-#dash {
-  align-content: center;
-  width: 80%;
-  margin-left: 10%;
-  margin-right:10%;
-}
-
-/* Landing */
-
-.landing { 
-  width: 100%;
-  height: 100% !important;
-  background: url(images/photo-1533240332313-0db49b459ad6.jpeg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-.landed {
-  padding-top: 1in;
-}
-
-.flex {
-padding-top: .3in;
-}
-
-/* Login */
-
-.login { 
-  width: 100%;
-  height: 100% !important;
-  background: url(images/pexels-photo.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 100%;
-}
-
-#root > div > div > div.container.login > div > div {
-  padding-top: 1in;
-  
-}
-
-/* Register */
-
-.register { 
-  width: 100%;
-  height: 100% !important;
-  background: url(images/pexels-photo.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-/* Results */
-.results {
-  background: url(images/pexels-photo-1365428.jpeg)no-repeat center center fixed;
-  min-height: 100%;
-  min-width: 100%;
-}
-
-/* Components */
-
-/* Navbar */
-
-.registerlink, .loginlink {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-}
-
-.registerlink {
-  padding-right: 20px;
-}
-
-.loginlink {
-  padding-left: 20px;
-}
-
-#root > div > div > div.container.dashboard > div:nth-child(2) {
- margin-bottom: 0;
-}
-
-/* #root > div > div > div.container.landing {
-  height: 100% !important;
-} */
+ .brand-logo {
+  background: url(images/Free_Sample_By_Wix.png) no-repeat center center fixed;
+ }
+ 
+ .registerlink, .loginlink {
+   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+ }
+ 
+ .registerlink {
+   padding-right: 20px;
+ }
+ 
+ .loginlink {
+   padding-left: 20px;
+ }
+ 
+ #root > div > div > div.container.dashboard > div:nth-child(2) {
+  margin-bottom: 0;
+ }
+ 
+ /* #root > div > div > div.container.landing {
+   height: 100% !important;
+ } */
