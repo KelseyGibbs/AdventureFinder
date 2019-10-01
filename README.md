@@ -2,7 +2,7 @@
 
 ## Introduction
 
-> When you know you want to go hiking, but you're unsure of where to go nearby, "Adventure Finder" is a place to search and save hikes so you can get on a tral.
+When you know you want to go hiking, but you're unsure of where to go nearby, "Adventure Finder" is a place to search and save hikes so you can get on a tral.
 <br>
 The ambition behind Adventure Finder is to encourage people to explore new trails in areas they are familiar with, as well as help people plan hikes in areas they've never visited before.
 <br>
