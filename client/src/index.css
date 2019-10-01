@@ -1,117 +1,145 @@
-html, body, #root, .App, .container {
+html,
+body,
+#root,
+.App,
+.container {
   width: 100% !important;
   max-width: 100% !important;
   margin-bottom: 0;
-  height:100% !important;
- }
- /* Pages *********/
- 
- /* Dashboard */
- 
- 
- .thisdash { 
-   background: url(images/photo-1500964757637-c85e8a162699.jpeg)no-repeat center center fixed;
-   min-height: 100%;
-   min-width: 100%;
- }
- 
- .heyThere {
-   padding-right: .5in;
- }
- 
- .fake {
-   margin-right: .1in;
- }
- #dash {
-   align-content: center;
-   width: 80%;
-   margin-left: 10%;
-   margin-right:10%;
- }
- 
- /* Landing */
- 
- .landing { 
-   width: 100%;
-   height: 100% !important;
-   background: url(images/photo-1533240332313-0db49b459ad6.jpeg) no-repeat center center fixed; 
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover;
- }
- 
- .landed {
-   padding-top: 1in;
- }
- 
- .flex {
- padding-top: .3in;
- }
- 
- /* Login */
- 
- .login { 
-   width: 100%;
-   height: 100% !important;
-   background: url(images/pexels-photo.jpg) no-repeat center center fixed; 
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   height: 100%;
- }
- 
- #root > div > div > div.container.login > div > div {
-   padding-top: 1in;
-   
- }
- 
- /* Register */
- 
- .register { 
-   width: 100%;
-   height: 100% !important;
-   background: url(images/pexels-photo.jpg) no-repeat center center fixed; 
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover;
- }
- 
- /* Results */
- .results {
-   background: url(images/pexels-photo-1365428.jpeg)no-repeat center center fixed;
-   min-height: 100%;
-   min-width: 100%;
- }
- 
- /* Components */
- 
- /* Navbar */
+  height: 100% !important;
+}
 
- .brand-logo {
+/* Pages *********/
+
+/* Dashboard */
+
+
+.thisdash {
+  background: url(images/photo-1500964757637-c85e8a162699.jpeg)no-repeat center center fixed;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.heyThere {
+  padding-right: .5in;
+  text-shadow: 3px 2px 3px rgba(10,4,3,0.24);
+}
+
+
+
+.fake {
+  margin-right: .1in;
+}
+
+#dash {
+  align-content: center;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/* Landing */
+
+.landing {
+  width: 100%;
+  height: 100% !important;
+  background: url(images/photo-1533240332313-0db49b459ad6.jpeg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.landed {
+  padding-top: 1in;
+}
+
+.flex {
+  padding-top: .3in;
+}
+
+/* Login */
+
+.login {
+  width: 100%;
+  height: 100% !important;
+  background: url(images/pexels-photo.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+#root>div>div>div.container.login>div>div {
+  padding-top: 1in;
+
+}
+
+/* Register */
+
+.register {
+  width: 100%;
+  height: 100% !important;
+  background: url(images/pexels-photo.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* search */
+
+.card {
+  padding: 2px 25px 25px 25px;
+  border-radius: 20px;
+  -webkit-box-shadow: 3px 6px 18px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 6px 18px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 6px 18px 1px rgba(0, 0, 0, 0.75);
+}
+
+.btn {
+  margin: 10px 10px 10px 10px;
+  -webkit-box-shadow: 3px 6px 20px -7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 6px 20px -7px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 6px 20px -7px rgba(0, 0, 0, 0.75);
+  border-radius: 2px !important;
+}
+
+/* Results */
+.results {
+  background: url(images/pexels-photo-1365428.jpeg)no-repeat center center fixed;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+/* Components */
+
+/* Navbar */
+
+.brand-logo {
   background: url(images/Free_Sample_By_Wix.png) no-repeat center center fixed;
- }
- 
- .registerlink, .loginlink {
-   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
- }
- 
- .registerlink {
-   padding-right: 20px;
- }
- 
- .loginlink {
-   padding-left: 20px;
- }
- 
- #root > div > div > div.container.dashboard > div:nth-child(2) {
+}
+
+.registerlink,
+.loginlink {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.registerlink {
+  padding-right: 20px;
+}
+
+.loginlink {
+  padding-left: 20px;
+}
+
+#root>div>div>div.container.dashboard>div:nth-child(2) {
   margin-bottom: 0;
- }
- 
- /* #root > div > div > div.container.landing {
+}
+
+/* #root > div > div > div.container.landing {
    height: 100% !important;
  } */
